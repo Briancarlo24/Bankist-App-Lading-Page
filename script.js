@@ -1,5 +1,7 @@
 'use strict';
 
+// Author - Brian Carlo Birondo - From Zero to Hero Course of Jonas
+
 ///////////////////////////////////////
 // Modal window
 const btnCloseModal = document.querySelector('.btn--close-modal');
