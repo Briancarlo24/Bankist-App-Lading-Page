@@ -63,10 +63,10 @@ btnScrollTo.addEventListener('click', function (e) {
 // 2. Determine what element orginated the event
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
   // Matching strategy
   if (e.target.classList.contains('nav__link')) {
     // console.log('contains nav__link');
-    e.preventDefault();
     const id = e.target.getAttribute('href'); // returns #section--1/2/3
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
@@ -190,7 +190,7 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 headerObserver.observe(header);
 
-// -- Reveal Sections
+// ************************Reveal Sections*************************
 const allSections = document.querySelectorAll('.section');
 const revealSection = function (entries, observer) {
   const [entry] = entries;
@@ -211,7 +211,7 @@ const obsOptions = {
 const sectionObserver = new IntersectionObserver(revealSection, obsOptions);
 allSections.forEach(section => {
   sectionObserver.observe(section);
-  // section.classList.add('section--hidden');
+  section.classList.add('section--hidden');
 });
 
 // Lazy Loading images
