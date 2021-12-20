@@ -16,16 +16,16 @@
   </head>
   <body>
     <header class="header">
-      <nav class="nav">
+      <nav class="nav nav-hide">
         <img
           src="img/logo.png"
           alt="Bankist logo"
           class="nav__logo"
           id="logo"
-          designer="Brian"
+          designer="Jonas for Desktop, Brian for responsive"
           data-version-number="3.0"
         />
-        <ul class="nav__links">
+        <ul class="nav__links nav__links-hidden">
           <li class="nav__item">
             <a class="nav__link" href="#section--1">Features</a>
           </li>
@@ -41,6 +41,11 @@
             >
           </li>
         </ul>
+        <div class="nav__menu-container">
+          <span class="nav__menu nav__menu--top"></span>
+          <span class="nav__menu nav__menu--middle"></span>
+          <span class="nav__menu nav__menu--bottom"></span>
+        </div>
       </nav>
 
       <div class="header__title">
@@ -52,7 +57,9 @@
           <span class="highlight">minimalist</span>
         </h1>
         <h4>A simpler banking experience for a simpler life.</h4>
-        <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
+        <button class="header__btn btn--text btn--scroll-to">
+          Learn more &DownArrow;
+        </button>
         <img
           src="img/hero.png"
           class="header__img"
@@ -70,13 +77,14 @@
       </div>
 
       <div class="features">
+        <!-- FEATURE 1 -->
         <img
           src="img/digital-lazy.jpg"
           data-src="img/digital.jpg"
           alt="Computer"
-          class="features__img lazy-img"
+          class="features__img features__img--1 lazy-img"
         />
-        <div class="features__feature">
+        <div class="features__feature features__feature--1">
           <div class="features__icon">
             <svg>
               <use xlink:href="img/icons.svg#icon-monitor"></use>
@@ -89,8 +97,8 @@
             debitis ducimus.
           </p>
         </div>
-
-        <div class="features__feature">
+        <!-- FEATURE 2 -->
+        <div class="features__feature features__feature--2">
           <div class="features__icon">
             <svg>
               <use xlink:href="img/icons.svg#icon-trending-up"></use>
@@ -107,16 +115,16 @@
           src="img/grow-lazy.jpg"
           data-src="img/grow.jpg"
           alt="Plant"
-          class="features__img lazy-img"
+          class="features__img features__img--2 lazy-img"
         />
-
+        <!-- FEATURE 3 -->
         <img
           src="img/card-lazy.jpg"
           data-src="img/card.jpg"
           alt="Credit card"
-          class="features__img lazy-img"
+          class="features__img features__img--3 lazy-img"
         />
-        <div class="features__feature">
+        <div class="features__feature features__feature--3">
           <div class="features__icon">
             <svg>
               <use xlink:href="img/icons.svg#icon-credit-card"></use>
@@ -285,12 +293,6 @@
           </div>
         </div>
 
-        <!--
-        <div class="slide"><img src="img/img-1.jpg" alt="Photo 1" /></div>
-        <div class="slide"><img src="img/img-2.jpg" alt="Photo 2" /></div>
-        <div class="slide"><img src="img/img-3.jpg" alt="Photo 3" /></div>
-        <div class="slide"><img src="img/img-4.jpg" alt="Photo 4" /></div>
-        -->
         <button class="slider__btn slider__btn--left">&larr;</button>
         <button class="slider__btn slider__btn--right">&rarr;</button>
         <div class="dots"></div>
@@ -339,8 +341,10 @@
           target="_blank"
           href="https://twitter.com/jonasschmedtman"
           >Jonas Schmedtmann</a
-        >. Use for learning or your portfolio. Don't use to teach. Don't claim
-        as your own product.
+        >. Responsive design by
+        <a href="https://github.com/Briancarlo24" class="footer__link"
+          >Brian Carlo Birondo</a
+        >.
       </p>
     </footer>
 

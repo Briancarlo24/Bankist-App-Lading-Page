@@ -7,6 +7,7 @@
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
+const btnMenu = document.querySelector('.nav__menu-container');
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -20,6 +21,26 @@ const nav = document.querySelector('.nav');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
+
+// If Navigation Menu is clicked. This will happen
+const navEvent = function () {
+  // Nav
+  document.querySelector('.nav').classList.toggle('nav-full');
+  // Nav Menu
+  document.querySelector('.nav__menu-container').classList.toggle('move-down');
+  document.querySelector('.nav__menu--top').classList.toggle('top-rotate');
+  document.querySelector('.nav__menu--middle').classList.toggle('hidden');
+  document
+    .querySelector('.nav__menu--bottom')
+    .classList.toggle('bottom-rotate');
+  // Nav Links
+  document.querySelector('.nav__links').classList.toggle('nav__links-hidden');
+  document.querySelector('.nav__links').classList.toggle('nav__links-full');
+};
+
+// Button Menu
+
+btnMenu.addEventListener('click', navEvent);
 
 //Modal Window
 const openModal = function (e) {
@@ -47,6 +68,16 @@ document.addEventListener('keydown', function (e) {
 // Adding smooth scroll to the 'learn more' button
 btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
+
+  // console.log(e.target.getBoundingClientRect());
+
+  // window.scrollTo(section1.left, section1.top);
+
+  // window.scrollTo({
+  //   left: section1.left + window.pageXOffset,
+  //   top: section1.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
 });
 
 //adding smooth scroll to nav links (not efficient)
@@ -68,7 +99,10 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   if (e.target.classList.contains('nav__link')) {
     // console.log('contains nav__link');
     const id = e.target.getAttribute('href'); // returns #section--1/2/3
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    if (id !== '#')
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+
+    // navEvent();
   }
 });
 
@@ -176,7 +210,7 @@ const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
   const [entry] = entries;
-  // console.log(entry);
+  console.log(entry);
 
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
