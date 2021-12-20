@@ -142,16 +142,7 @@ img {
     background-color: rgba(255, 255, 255, 1);
   }
 } */
-.nav-full {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 1);
-  padding-top: 2.25rem;
-  display: flex;
-  align-items: flex-start;
-}
+
 .nav__logo {
   height: 4.5rem;
   transition: all 0.3s;
@@ -228,20 +219,39 @@ img {
   }
   .nav__link:link,
   .nav__link:visited {
-    transition: all 0.5s;
-
+    transition: all 0.3s;
+    position: relative;
     font-size: 2.7rem;
     padding: 1rem 4rem 1rem;
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
       120deg,
       transparent 0,
       transparent 50%,
       var(--color-primary-darker)
     );
-    background-size: 220%;
+    background-size: 220%; */
   }
 
-  .nav__link:link:hover {
+  .nav__link::before {
+    transition: all 0.3s;
+    content: '';
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    width: 80%;
+    height: 10%;
+    z-index: -1;
+    transform: skewX(-15deg) translateX(-50%) rotate(-2deg);
+    background-image: linear-gradient(
+      350deg,
+      var(--color-primary-darker),
+      transparent 40%,
+      transparent 0
+    );
+    background-size: 200%;
+  }
+
+  .nav__link:hover::before {
     background-size: 220%;
     background-position: 100% 100%;
   }
@@ -249,6 +259,11 @@ img {
   .nav__link--btn:link {
     border-radius: 100px;
     font-size: 1.9rem;
+    margin-top: 4rem;
+  }
+
+  .nav__link--btn::before {
+    background: transparent;
   }
 
   /* JAVASCRIPT CLASS TOGGLE */
@@ -269,7 +284,16 @@ img {
     flex-direction: column;
     gap: 4rem;
   }
-
+  .nav-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #f3f3f3;
+    padding-top: 2.25rem;
+    display: flex;
+    align-items: flex-start;
+  }
   .move-down {
     transform: translateY(1rem);
   }
@@ -279,10 +303,12 @@ img {
   .nav {
     padding-inline: 3rem;
   }
+  .nav__links-full {
+    gap: 1rem;
+  }
 
   .nav__link--btn:link,
   .nav__link--btn:visited {
-    padding: 1rem 2rem;
     border-radius: 3rem;
     background-color: var(--color-primary);
     font-size: 2rem;
@@ -549,7 +575,9 @@ h4 {
     margin-right: 1.5rem;
     transform: translateY(-50%);
   }
-
+  .operations__tab--active {
+    transform: translateY(-66%);
+  }
   .operations__tab span {
     margin-right: 0;
     display: none;
@@ -607,9 +635,16 @@ h4 {
     padding: 1rem 2rem;
     flex: 1;
     border-radius: 0;
+    z-index: 2;
   }
 
-  .operations__content {
+  .operations__tab--2 {
+    margin-right: -0.1rem;
+  }
+
+  .operations__tab--active {
+    transform: scale(1.1) translateY(-50%) skewX(-10deg);
+    z-index: 999999;
   }
   .operations__content--active {
     display: grid;

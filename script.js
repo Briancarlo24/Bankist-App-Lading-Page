@@ -95,6 +95,8 @@ btnScrollTo.addEventListener('click', function (e) {
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
+  const navMenu = document.querySelector('.nav__menu-container');
+
   // Matching strategy
   if (e.target.classList.contains('nav__link')) {
     // console.log('contains nav__link');
@@ -102,7 +104,9 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     if (id !== '#')
       document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 
-    // navEvent();
+    if (navMenu.classList.contains('move-down')) {
+      navEvent();
+    }
   }
 });
 
